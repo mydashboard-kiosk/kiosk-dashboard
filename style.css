@@ -1,12 +1,11 @@
-﻿html, body { height: 100%; margin: 0; overflow: hidden; }
+html, body { height: 100%; margin: 0; overflow: hidden; }
 body { font-family: -apple-system, Segoe UI, Arial, sans-serif; }
 
 #bg{
   position: fixed; inset: 0; z-index: 0;
   background:
-    radial-gradient(circle at 72% 92%, rgba(255,190,85,0.40) 0%, rgba(255,190,85,0) 36%),
-    radial-gradient(circle at 18% 84%, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0) 45%),
-    linear-gradient(180deg, #1a74ff 0%, #57b5ff 65%, #c8eeff 100%);
+    radial-gradient(circle at 78% 92%, rgba(255,180,70,0.40) 0%, rgba(255,180,70,0) 35%),
+    linear-gradient(180deg, #1366ff 0%, #58b7ff 70%, #cfefff 100%);
 }
 
 #wrap{
@@ -18,126 +17,114 @@ body { font-family: -apple-system, Segoe UI, Arial, sans-serif; }
   gap: 18px;
 }
 
-.panel{ border-radius: 10px; overflow: hidden; box-shadow: 0 10px 28px rgba(0,0,0,0.22); }
-.panelDark{
-  background: rgba(14, 18, 26, 0.72);
-  border: 2px solid rgba(0,0,0,0.30);
+/* Panels */
+.panel{
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 12px 26px rgba(0,0,0,0.25);
 }
-.panelSoft{
-  background: rgba(0,0,0,0.10);
-  border: 1px solid rgba(255,255,255,0.10);
-  color: #fff;
+.panelDark{
+  background: rgba(10, 14, 22, 0.78);
+  border: 2px solid rgba(0,0,0,0.35);
 }
 .panelHeader{
-  background: linear-gradient(180deg, rgba(35,40,55,0.95) 0%, rgba(15,18,26,0.95) 100%);
-  border-bottom: 2px solid rgba(255,255,255,0.08);
-  color: rgba(255,255,255,0.92);
+  background: linear-gradient(180deg, rgba(35,40,55,0.98) 0%, rgba(10,12,18,0.98) 100%);
+  border-bottom: 2px solid rgba(255,255,255,0.10);
+  color: rgba(255,255,255,0.95);
   text-align: center;
-  font-weight: 900;
-  font-size: clamp(22px, 3.0vw, 40px);
-  padding: 10px 12px;
-  letter-spacing: 0.4px;
-  text-shadow: 0 2px 0 rgba(0,0,0,0.35);
+  font-weight: 950;
+  font-size: 46px;
+  padding: 12px 14px;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 0 rgba(0,0,0,0.45);
 }
+.smallHeader{ font-size: 34px; padding: 10px 12px; }
 
 #left{
   flex: 0 0 48%;
-  padding: 16px;
-  box-sizing: border-box;
   position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  min-width: 0;
+}
+.panelLeft{
+  background: rgba(0,0,0,0.10);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: #fff;
+  padding: 22px;
+  box-sizing: border-box;
 }
 
-.leftTop{
+/* Weather */
+.wxTop{
   display: flex;
-  gap: 14px;
   align-items: center;
+  gap: 22px;
+  margin-top: 8px;
 }
 
-.wxIcon{
-  width: 120px;
-  height: 120px;
-  border-radius: 16px;
-  background: rgba(255,255,255,0.12);
+.wxIconBig{
+  width: 190px;
+  height: 190px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.10);
   border: 2px solid rgba(255,255,255,0.10);
   display: grid;
   place-items: center;
-  font-size: 52px;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.12);
+  font-size: 110px; /* big like reference */
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.15);
 }
 
-.wxBlock{ min-width: 0; }
-.wxTemp{
-  font-size: clamp(72px, 8.5vw, 128px);
-  font-weight: 950;
-  line-height: 0.95;
-  letter-spacing: -1px;
-  text-shadow: 0 3px 0 rgba(0,0,0,0.18);
+.wxHeadline{ min-width: 0; }
+.wxTempBig{
+  font-size: 150px;
+  font-weight: 980;
+  line-height: 0.9;
+  text-shadow: 0 4px 0 rgba(0,0,0,0.16);
 }
-.wxMain{
+.wxMainBig{
+  font-size: 70px;
+  font-weight: 980;
   margin-top: 6px;
-  font-size: clamp(30px, 4.6vw, 62px);
-  font-weight: 950;
-  line-height: 1.05;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  text-shadow: 0 3px 0 rgba(0,0,0,0.16);
-}
-.wxDesc{
-  margin-top: 4px;
-  font-size: clamp(18px, 2.2vw, 28px);
-  font-weight: 800;
-  opacity: 0.95;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
-.wxMeta{
-  padding-top: 10px;
-  border-top: 1px solid rgba(255,255,255,0.18);
-  font-size: clamp(20px, 2.6vw, 34px);
-  font-weight: 850;
+.wxPlace{
+  font-size: 28px;
+  font-weight: 900;
+  opacity: 0.9;
+  margin-top: 6px;
 }
-.wxRow{ margin: 10px 0; }
-.lbl{ opacity: 0.88; margin-right: 8px; }
-.sep{ display:inline-block; width: 18px; }
 
+/* Stats like the reference (big list, not tiny) */
+.wxStats{
+  margin-top: 30px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255,255,255,0.20);
+  font-size: 44px;
+  font-weight: 900;
+}
+.statRow{ margin: 16px 0; }
+.statRow span{ opacity: 0.92; }
+.statRow b{ font-weight: 980; }
+
+/* Left clock */
 .leftClock{
-  margin-top: auto;
-  padding-top: 6px;
+  position: absolute;
+  left: 26px;
+  bottom: 24px;
 }
 .leftTime{
-  font-size: clamp(42px, 5.0vw, 82px);
-  font-weight: 950;
+  font-size: 92px;
+  font-weight: 980;
   letter-spacing: 0.3px;
 }
 .leftDate{
   margin-top: 6px;
-  font-size: clamp(20px, 2.8vw, 44px);
-  font-weight: 900;
+  font-size: 46px;
+  font-weight: 950;
   opacity: 0.95;
 }
 
-.forecast{ padding: 10px 12px 14px; display: grid; grid-template-columns: 1fr; gap: 10px; }
-.fRow{
-  display: grid;
-  grid-template-columns: 70px 1fr auto;
-  gap: 12px;
-  align-items: center;
-  padding: 10px 12px;
-  border-radius: 8px;
-  background: rgba(255,255,255,0.06);
-  border: 2px solid rgba(255,255,255,0.05);
-}
-.fDay{ font-weight: 950; font-size: clamp(16px, 2.2vw, 24px); opacity: 0.92; }
-.fText{ font-weight: 900; font-size: clamp(16px, 2.2vw, 24px); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.fTemps{ font-weight: 950; font-size: clamp(16px, 2.2vw, 24px); white-space: nowrap; }
-
+/* Right column layout */
 #right{
   flex: 1 1 auto;
   display: flex;
@@ -146,15 +133,14 @@ body { font-family: -apple-system, Segoe UI, Arial, sans-serif; }
   min-width: 0;
 }
 
-#filmPanel{ flex: 0 0 28%; min-height: 160px; }
-.filmViewport{
-  height: calc(100% - 58px);
-  margin: 12px;
+/* Photo window like your reference */
+.photoWindow{
+  height: 230px;
+  margin: 14px;
   border-radius: 8px;
   overflow: hidden;
-  border: 2px solid rgba(255,255,255,0.06);
+  border: 2px solid rgba(255,255,255,0.08);
   background: rgba(255,255,255,0.03);
-  position: relative;
 }
 .filmTrack{
   height: 100%;
@@ -163,75 +149,60 @@ body { font-family: -apple-system, Segoe UI, Arial, sans-serif; }
   gap: 12px;
   padding: 10px 12px;
   will-change: transform;
-}
-.filmImg{
-  height: 100%;
-  width: auto;
-  max-height: 100%;
-  border-radius: 8px;
-  border: 2px solid rgba(255,255,255,0.08);
-  background: rgba(255,255,255,0.04);
-  object-fit: contain;
-}
-
-.filmRun{
   animation-name: filmScroll;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
-
+.filmImg{
+  height: 100%;
+  width: auto;
+  border-radius: 8px;
+  border: 2px solid rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.03);
+  object-fit: cover;
+}
 @keyframes filmScroll{
-  0%   { transform: translateX(0); }
+  0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 
-#eventsPanel{ flex: 0 0 38%; }
-.eventsList{ padding: 12px; }
+/* Events (big rows like reference) */
+.eventsList{ padding: 14px; }
 .eventRow{
-  display:flex;
-  justify-content: space-between;
+  display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 14px 14px;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 18px 18px;
   border-radius: 8px;
-  background: rgba(255,255,255,0.06);
-  border: 2px solid rgba(255,255,255,0.05);
-  margin-bottom: 10px;
+  background: rgba(255,255,255,0.07);
+  border: 2px solid rgba(255,255,255,0.06);
+  margin-bottom: 12px;
 }
 .eventTitle{
-  font-weight: 950;
-  font-size: clamp(20px, 3.0vw, 36px);
-  color: rgba(255,255,255,0.92);
+  font-size: 38px;
+  font-weight: 980;
+  color: rgba(255,255,255,0.94);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  min-width: 0;
 }
 .eventWhen{
-  font-weight: 950;
-  font-size: clamp(18px, 2.8vw, 36px);
-  color: rgba(255,255,255,0.92);
+  font-size: 38px;
+  font-weight: 980;
+  color: rgba(255,255,255,0.94);
   white-space: nowrap;
 }
 
+/* Bottom row */
 #bottomRow{
-  flex: 1 1 auto;
   display: flex;
   gap: 14px;
-  min-height: 0;
+  min-height: 220px;
 }
-#calPanel{ flex: 1 1 55%; }
-#clockPanel{ flex: 1 1 45%; display: grid; place-items: center; text-align: center; }
+#bottomRow .panel{ flex: 1 1 50%; }
 
-.calTitle{
-  background: linear-gradient(180deg, rgba(35,40,55,0.95) 0%, rgba(15,18,26,0.95) 100%);
-  border-bottom: 2px solid rgba(255,255,255,0.08);
-  text-align: center;
-  font-size: clamp(18px, 2.6vw, 34px);
-  font-weight: 950;
-  padding: 10px 12px;
-  color: rgba(255,255,255,0.92);
-}
+/* Calendar */
 .calGrid{
   padding: 12px;
   display: grid;
@@ -239,16 +210,16 @@ body { font-family: -apple-system, Segoe UI, Arial, sans-serif; }
   gap: 8px;
 }
 .calDow{
-  text-align:center;
+  text-align: center;
   font-weight: 950;
-  font-size: clamp(14px, 1.9vw, 22px);
+  font-size: 20px;
   color: rgba(255,255,255,0.75);
-  padding: 2px 0 6px;
+  padding: 4px 0 8px;
 }
 .calCell{
-  text-align:center;
-  font-weight: 900;
-  font-size: clamp(14px, 2.0vw, 24px);
+  text-align: center;
+  font-weight: 950;
+  font-size: 22px;
   padding: 10px 0;
   border-radius: 8px;
   background: rgba(255,255,255,0.06);
@@ -261,15 +232,41 @@ body { font-family: -apple-system, Segoe UI, Arial, sans-serif; }
   border-color: rgba(255,255,255,0.14);
 }
 
+/* Right clock */
+.clockPanel{
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
 .bigTime{
-  font-size: clamp(44px, 5.4vw, 86px);
+  font-size: 96px;
   font-weight: 980;
   color: rgba(255,255,255,0.95);
-  text-shadow: 0 3px 0 rgba(0,0,0,0.35);
+  text-shadow: 0 3px 0 rgba(0,0,0,0.4);
 }
 .bigDate{
   margin-top: 10px;
-  font-size: clamp(18px, 2.8vw, 44px);
+  font-size: 46px;
   font-weight: 950;
-  color: rgba(255,255,255,0.92);
+  color: rgba(255,255,255,0.93);
 }
+
+/* Forecast: compact list so it doesn't look like a table app */
+.forecastCompact{
+  padding: 12px 14px 16px;
+  display: grid;
+  gap: 10px;
+}
+.fRow{
+  display: grid;
+  grid-template-columns: 70px 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 12px 12px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.07);
+  border: 2px solid rgba(255,255,255,0.06);
+}
+.fDay{ font-size: 22px; font-weight: 980; opacity: 0.92; }
+.fText{ font-size: 22px; font-weight: 950; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.fTemps{ font-size: 22px; font-weight: 980; white-space: nowrap; }
