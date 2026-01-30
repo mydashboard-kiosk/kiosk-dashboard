@@ -1,0 +1,9 @@
+﻿{
+  "locationName": "Leipsic",
+  "lat": 41.1092,
+  "lon": -83.9957,
+  "units": "fahrenheit",
+  "forecastDays": 10,
+  "filmstripSpeedSeconds": 35,
+  "maxEvents": 3
+}

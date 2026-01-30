@@ -1,0 +1,275 @@
+﻿html, body { height: 100%; margin: 0; overflow: hidden; }
+body { font-family: -apple-system, Segoe UI, Arial, sans-serif; }
+
+#bg{
+  position: fixed; inset: 0; z-index: 0;
+  background:
+    radial-gradient(circle at 72% 92%, rgba(255,190,85,0.40) 0%, rgba(255,190,85,0) 36%),
+    radial-gradient(circle at 18% 84%, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0) 45%),
+    linear-gradient(180deg, #1a74ff 0%, #57b5ff 65%, #c8eeff 100%);
+}
+
+#wrap{
+  position: relative; z-index: 1;
+  height: 100%;
+  padding: 18px;
+  box-sizing: border-box;
+  display: flex;
+  gap: 18px;
+}
+
+.panel{ border-radius: 10px; overflow: hidden; box-shadow: 0 10px 28px rgba(0,0,0,0.22); }
+.panelDark{
+  background: rgba(14, 18, 26, 0.72);
+  border: 2px solid rgba(0,0,0,0.30);
+}
+.panelSoft{
+  background: rgba(0,0,0,0.10);
+  border: 1px solid rgba(255,255,255,0.10);
+  color: #fff;
+}
+.panelHeader{
+  background: linear-gradient(180deg, rgba(35,40,55,0.95) 0%, rgba(15,18,26,0.95) 100%);
+  border-bottom: 2px solid rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.92);
+  text-align: center;
+  font-weight: 900;
+  font-size: clamp(22px, 3.0vw, 40px);
+  padding: 10px 12px;
+  letter-spacing: 0.4px;
+  text-shadow: 0 2px 0 rgba(0,0,0,0.35);
+}
+
+#left{
+  flex: 0 0 48%;
+  padding: 16px;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+}
+
+.leftTop{
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.wxIcon{
+  width: 120px;
+  height: 120px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.12);
+  border: 2px solid rgba(255,255,255,0.10);
+  display: grid;
+  place-items: center;
+  font-size: 52px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.12);
+}
+
+.wxBlock{ min-width: 0; }
+.wxTemp{
+  font-size: clamp(72px, 8.5vw, 128px);
+  font-weight: 950;
+  line-height: 0.95;
+  letter-spacing: -1px;
+  text-shadow: 0 3px 0 rgba(0,0,0,0.18);
+}
+.wxMain{
+  margin-top: 6px;
+  font-size: clamp(30px, 4.6vw, 62px);
+  font-weight: 950;
+  line-height: 1.05;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-shadow: 0 3px 0 rgba(0,0,0,0.16);
+}
+.wxDesc{
+  margin-top: 4px;
+  font-size: clamp(18px, 2.2vw, 28px);
+  font-weight: 800;
+  opacity: 0.95;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.wxMeta{
+  padding-top: 10px;
+  border-top: 1px solid rgba(255,255,255,0.18);
+  font-size: clamp(20px, 2.6vw, 34px);
+  font-weight: 850;
+}
+.wxRow{ margin: 10px 0; }
+.lbl{ opacity: 0.88; margin-right: 8px; }
+.sep{ display:inline-block; width: 18px; }
+
+.leftClock{
+  margin-top: auto;
+  padding-top: 6px;
+}
+.leftTime{
+  font-size: clamp(42px, 5.0vw, 82px);
+  font-weight: 950;
+  letter-spacing: 0.3px;
+}
+.leftDate{
+  margin-top: 6px;
+  font-size: clamp(20px, 2.8vw, 44px);
+  font-weight: 900;
+  opacity: 0.95;
+}
+
+.forecast{ padding: 10px 12px 14px; display: grid; grid-template-columns: 1fr; gap: 10px; }
+.fRow{
+  display: grid;
+  grid-template-columns: 70px 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.06);
+  border: 2px solid rgba(255,255,255,0.05);
+}
+.fDay{ font-weight: 950; font-size: clamp(16px, 2.2vw, 24px); opacity: 0.92; }
+.fText{ font-weight: 900; font-size: clamp(16px, 2.2vw, 24px); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.fTemps{ font-weight: 950; font-size: clamp(16px, 2.2vw, 24px); white-space: nowrap; }
+
+#right{
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+}
+
+#filmPanel{ flex: 0 0 28%; min-height: 160px; }
+.filmViewport{
+  height: calc(100% - 58px);
+  margin: 12px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.03);
+  position: relative;
+}
+.filmTrack{
+  height: 100%;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  will-change: transform;
+}
+.filmImg{
+  height: 100%;
+  width: auto;
+  max-height: 100%;
+  border-radius: 8px;
+  border: 2px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.04);
+  object-fit: contain;
+}
+
+.filmRun{
+  animation-name: filmScroll;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes filmScroll{
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+#eventsPanel{ flex: 0 0 38%; }
+.eventsList{ padding: 12px; }
+.eventRow{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 14px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.06);
+  border: 2px solid rgba(255,255,255,0.05);
+  margin-bottom: 10px;
+}
+.eventTitle{
+  font-weight: 950;
+  font-size: clamp(20px, 3.0vw, 36px);
+  color: rgba(255,255,255,0.92);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+.eventWhen{
+  font-weight: 950;
+  font-size: clamp(18px, 2.8vw, 36px);
+  color: rgba(255,255,255,0.92);
+  white-space: nowrap;
+}
+
+#bottomRow{
+  flex: 1 1 auto;
+  display: flex;
+  gap: 14px;
+  min-height: 0;
+}
+#calPanel{ flex: 1 1 55%; }
+#clockPanel{ flex: 1 1 45%; display: grid; place-items: center; text-align: center; }
+
+.calTitle{
+  background: linear-gradient(180deg, rgba(35,40,55,0.95) 0%, rgba(15,18,26,0.95) 100%);
+  border-bottom: 2px solid rgba(255,255,255,0.08);
+  text-align: center;
+  font-size: clamp(18px, 2.6vw, 34px);
+  font-weight: 950;
+  padding: 10px 12px;
+  color: rgba(255,255,255,0.92);
+}
+.calGrid{
+  padding: 12px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+}
+.calDow{
+  text-align:center;
+  font-weight: 950;
+  font-size: clamp(14px, 1.9vw, 22px);
+  color: rgba(255,255,255,0.75);
+  padding: 2px 0 6px;
+}
+.calCell{
+  text-align:center;
+  font-weight: 900;
+  font-size: clamp(14px, 2.0vw, 24px);
+  padding: 10px 0;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.06);
+  border: 2px solid rgba(255,255,255,0.05);
+  color: rgba(255,255,255,0.92);
+}
+.calCell.blank{ visibility: hidden; }
+.calCell.today{
+  background: rgba(40,140,255,0.65);
+  border-color: rgba(255,255,255,0.14);
+}
+
+.bigTime{
+  font-size: clamp(44px, 5.4vw, 86px);
+  font-weight: 980;
+  color: rgba(255,255,255,0.95);
+  text-shadow: 0 3px 0 rgba(0,0,0,0.35);
+}
+.bigDate{
+  margin-top: 10px;
+  font-size: clamp(18px, 2.8vw, 44px);
+  font-weight: 950;
+  color: rgba(255,255,255,0.92);
+}

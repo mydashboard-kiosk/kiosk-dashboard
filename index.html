@@ -1,0 +1,77 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kiosk Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="bg"></div>
+
+  <div id="wrap">
+    <section id="left" class="panel panelSoft">
+      <div class="leftTop">
+        <div class="wxIcon" id="wxIcon" aria-hidden="true"></div>
+
+        <div class="wxBlock">
+          <div id="wxTemp" class="wxTemp">--Â°</div>
+          <div id="wxMain" class="wxMain">Loading...</div>
+          <div id="wxDesc" class="wxDesc"></div>
+        </div>
+      </div>
+
+      <div class="wxMeta">
+        <div class="wxRow">
+          <span class="lbl">High</span><b id="wxHigh">--Â°</b>
+          <span class="sep"></span>
+          <span class="lbl">Low</span><b id="wxLow">--Â°</b>
+        </div>
+        <div class="wxRow">
+          <span class="lbl">Wind</span><b id="wxWind">-- mph</b>
+          <span class="sep"></span>
+          <span class="lbl">Humidity</span><b id="wxHum">--%</b>
+        </div>
+      </div>
+
+      <div class="leftClock">
+        <div id="leftTime" class="leftTime">--:--</div>
+        <div id="leftDate" class="leftDate">---</div>
+      </div>
+
+      <div class="forecastCard panel panelDark">
+        <div class="panelHeader">10 Day Forecast</div>
+        <div id="forecast" class="forecast"></div>
+      </div>
+    </section>
+
+    <section id="right">
+      <div id="filmPanel" class="panel panelDark">
+        <div class="panelHeader">Photos</div>
+        <div class="filmViewport">
+          <div id="filmTrack" class="filmTrack"></div>
+        </div>
+      </div>
+
+      <div id="eventsPanel" class="panel panelDark">
+        <div class="panelHeader">Upcoming Events</div>
+        <div id="eventsList" class="eventsList"></div>
+      </div>
+
+      <div id="bottomRow">
+        <div id="calPanel" class="panel panelDark">
+          <div id="calTitle" class="calTitle">Month YYYY</div>
+          <div id="calGrid" class="calGrid"></div>
+        </div>
+
+        <div id="clockPanel" class="panel panelDark clockPanel">
+          <div id="time" class="bigTime">--:--</div>
+          <div id="date" class="bigDate">---</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
